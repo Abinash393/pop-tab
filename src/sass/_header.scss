@@ -1,5 +1,5 @@
 body {
-    font-family: Roboto;
+    font-family: 'Montserrat', sans-serif;;
     font-size: 16px;
     font-weight: 400;
 }
@@ -11,7 +11,7 @@ body {
     width: 100%; 
     max-height: 60px;
     background-color: #1976d2;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.3), 0 15px 12px rgba(0,0,0,0.2);
 }
 
 .wrapper {
@@ -24,6 +24,7 @@ body {
 
 .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 12px;
 }
@@ -31,4 +32,32 @@ body {
 .github-img {
     height: auto;
     width: 40px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.input-container > div {
+    display: flex;
+    align-items: center;
+}
+
+.select {
+    margin-right: 12px;
+    background-color: #ebecf0;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    font-size: 16px;
+    max-height: 42px;
+    max-width: 300px;
+}
+
+.select:active {
+    color: #000;
+    background-color: #fff;
+    line-height: 1.5rem;
 }
