@@ -15,7 +15,7 @@ class App extends React.Component {
             repo: [],
             allLanguages:[],
             selectedLanguage:null,
-            selectedDate:null
+            selectedDate:'daily'
             }
     }
 

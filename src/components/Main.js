@@ -7,9 +7,10 @@ function Main({repo}) {
     return (
         <main className='main'>
             <div className='wrapper'>
-
+                <div className="card-container">
+                    {repo.map(v => <Card repo={v}/>)}
+                </div>
             </div>
-            {repo.map(v => <Card key={v.name} repo={v}/>)}
         </main>
     )
 

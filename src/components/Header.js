@@ -20,7 +20,7 @@ class Header extends React.Component {
                     <div className='input-container'>
                         <div>
                             <select onChange={(e)=> setSelectedLanguage(e.target.value)} value={selectedLanguage} className='programming-language select' >
-                                <option value={null}>All css Languages</option>
+                                <option value={null}>All Languages</option>
                                 {
                                     languages.map(lang =>{
                                         console.log(lang)
