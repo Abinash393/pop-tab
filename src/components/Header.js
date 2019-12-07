@@ -6,7 +6,7 @@ class Header extends React.Component {
     }
 
     render(){
-        const {setSelectedLanguage ,languages, selectedLanguage,} = this.props;
+        const {setSelectedLanguage ,languages, selectedLanguage,selectedDate,setSelectedDate} = this.props;
     console.log(languages)
     return (
         <header className='header'>
@@ -34,10 +34,10 @@ class Header extends React.Component {
                         </div>
                          
                         <div>
-                            <select className='trending-time select'>
-                                <option value="volvo">Trending Today</option>
-                                <option value="volvo">Trending This week</option>
-                                <option value="volvo">Trending This Month</option>
+                            <select className='trending-time select' onChange={(e) => setSelectedDate(e.target.value)} value={selectedDate}>
+                                <option value="daily">Trending Today</option>
+                                <option value="weekly">Trending This week</option>
+                                <option value="monthly">Trending This Month</option>
                             </select>
 
                         </div>  

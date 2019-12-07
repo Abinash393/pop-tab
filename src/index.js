@@ -14,12 +14,19 @@ class App extends React.Component {
         this.state = {
             repo: [],
             allLanguages:[],
-            selectedLanguage:null
+            selectedLanguage:null,
+            selectedDate:null
             }
     }
 
     setSelectedLanguage=(value)=>{
         this.setState({selectedLanguage:value},()=>{
+            this.fetchrepo()
+        })
+    }
+
+    setSelectedDate=(value)=>{
+        this.setState({selectedDate:value},()=>{
             this.fetchrepo()
         })
     }
@@ -30,11 +37,15 @@ class App extends React.Component {
     }
 
     fetchrepo() {
-        const {selectedLanguage} = this.state;
+        const {selectedLanguage,selectedDate} = this.state;
         let query = ''
         const url = 'https://github-trending-api.now.sh/repositories'
         if(selectedLanguage){
             query += `?language=${selectedLanguage}`
+        }
+        if(selectedDate) {
+            query += query ? '?' : '&'
+            query+= `since=${selectedDate}`
         }
         fetch(url+query)
         .then(res => {
@@ -55,11 +66,16 @@ class App extends React.Component {
     }
 
     render(){
-        const {repo,allLanguages,selectedLanguage} = this.state
+        const {repo,allLanguages,selectedLanguage, selectedDate} = this.state
 
         return(
             <> 
-            <Header setSelectedLanguage={this.setSelectedLanguage}  selectedLanguage={selectedLanguage} languages={allLanguages}/>
+            <Header setSelectedLanguage={this.setSelectedLanguage} 
+             selectedLanguage={selectedLanguage}
+              languages={allLanguages}
+              selectedDate={selectedDate}
+              setSelectedDate={this.setSelectedDate}
+              />
             <Main repo={repo}/>
         </>
     )
