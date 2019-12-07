@@ -1,6 +1,13 @@
 import React from 'react'
 
-function Header() {
+class Header extends React.Component {
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        const {setSelectedLanguage ,languages, selectedLanguage,} = this.props;
+    console.log(languages)
     return (
         <header className='header'>
             <div className='wrapper'>
@@ -12,10 +19,16 @@ function Header() {
                     {/* right section */}
                     <div className='input-container'>
                         <div>
-                            <select className='programming-language select' >
-                                <option value='alllanguages'>All Languages</option>
-                                <option value="python">Python</option>
-                                <option value="javascript">JavaScript</option>
+                            <select onChange={(e)=> setSelectedLanguage(e.target.value)} value={selectedLanguage} className='programming-language select' >
+                                <option value={null}>All css Languages</option>
+                                {
+                                    languages.map(lang =>{
+                                        console.log(lang)
+                                        return <option key={lang.urlParam} value={lang.urlParam}>{lang.name}</option>
+                                    }
+                                    )
+                                }
+                                
                             </select>
 
                         </div>
@@ -35,6 +48,8 @@ function Header() {
             </div>
         </header>
     )
+}
+
 }
 
 export default Header 
